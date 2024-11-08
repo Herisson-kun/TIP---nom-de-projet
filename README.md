@@ -1,1 +1,1 @@
-# TIP---nom-de-projet
+# TIP Potato Blight Classifier

@@ -113,9 +113,16 @@ def process_dataset(input_folder, output_folder, target_means, target_stds):
             standardized = np.clip(standardized, 0, 255)
             standardized = standardized.astype(np.uint8)
             standardized = cv2.cvtColor(standardized, cv2.COLOR_RGB2BGR)
+
+            _, ext = os.path.splitext(output_path)
+            if ext.lower() in ['.jpg', '.jpeg']:
+                # Pour JPEG, définir la qualité (0-100)
+                compression_params = [cv2.IMWRITE_JPEG_QUALITY, 65]
+            else:
+                compression_params = []
             
             # Sauvegarder l'image
-            cv2.imwrite(output_path, standardized)
+            cv2.imwrite(output_path, standardized, compression_params)
 
 def verify_standardization(folder, target_means, target_stds):
     """

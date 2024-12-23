@@ -105,6 +105,7 @@ def create_cnn_model(input_shape=(256, 256, 3), num_classes=3):
     model.add(layers.Conv2D(32, (3, 3), activation='relu', padding='same'))
     model.add(layers.MaxPooling2D((2, 2)))
 
+    # Septieme couche de convolution + max pooling
     model.add(layers.Conv2D(32, (3, 3), activation='relu', padding='same'))
     model.add(layers.MaxPooling2D((2, 2)))
 
